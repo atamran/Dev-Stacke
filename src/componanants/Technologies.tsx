@@ -11,9 +11,12 @@ const Technologies = ({ usersPromise }: ITechnologiesProps) => {
     const data = use(usersPromise);
     console.log(data, "data");
     const [stack, setStack] = useState<ITechnologies[]>([]);
-      const handleAddToStack = (technology: ITechnologies) => {
+    
+
+const handleAddToStack = (technology: ITechnologies) => {
     setStack([...stack, technology]);
-  };
+};
+
     return (
         <div>
             <div className='items-center justify-between gap-4 container mx-auto my-4 mb-4'>
@@ -77,7 +80,7 @@ const Technologies = ({ usersPromise }: ITechnologiesProps) => {
         </div>
 
         {/* Button */}
-        <button onClick={() => handleAddToStack(technology)} className="mt-6 w-full rounded-2xl bg-[#080d1d] py-3.5 text-lg font-medium text-white transition hover:bg-gray-800">
+        <button  onClick={() => handleAddToStack(technology)} className="mt-6 w-full rounded-2xl bg-[#080d1d] py-3.5 text-lg font-medium text-white transition hover:bg-gray-800">
           Add to Stack
         </button>
 
@@ -90,7 +93,36 @@ const Technologies = ({ usersPromise }: ITechnologiesProps) => {
             <div className='col-span-3 shadow-2xl py-4 p-4 '>
                 <h1 className='text-3xl font-bold'>Your Stack</h1>
                 <p>No technologies selected yet.</p>
-                <div className="border border-gray-200 rounded-xl p-8 shadow-md items-center justify-center">Your stack is empty.</div>
+                {stack.length === 0 ? (
+  <div className="border border-gray-200 rounded-xl p-8 text-center shadow-md">
+    Your stack is empty.
+  </div>
+) : (
+  <div className="mt-4 space-y-3">
+    {stack.map((technology) => (
+      <div
+        key={technology.id}
+        className="flex items-center gap-3 border border-gray-200 rounded-xl p-3"
+      >
+        <img
+          src={technology.icon}
+          alt={technology.name}
+          className="w-10 h-10 object-contain"
+        />
+
+        <div>
+          <h3 className="font-semibold">
+            {technology.name}
+          </h3>
+
+          <p className="text-sm text-gray-500">
+            {technology.category}
+          </p>
+        </div>
+      </div>
+    ))}
+  </div>
+)}
                 </div>
            </div>
             </div>
