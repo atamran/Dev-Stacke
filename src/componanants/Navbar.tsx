@@ -2,11 +2,11 @@
 import Logo from "../assets/logo-text.png"
 
 const Navbar = () => {
- return <div className="border-b border-gray-300">
- <nav className="flex justify-between gap-4 container mx-auto py-4 ">
+ return <div className="border-b border-gray-300 mt-6 ">
+ <nav className="flex justify-between gap-4 container mx-auto px-4 mb-4 ">
     <img src={Logo} className="w-[120px] h-[60px]" alt="" />
     <ul className="flex gap-4 items-center ">
-        <li className=" hover:text-pink-600"><a href="">Home</a></li>
+        <li className=" text-pink-600 hover:text-pink-600"><a href="">Home</a></li>
         <li className=" hover:text-pink-600"><a href="">Technologies</a></li>
         <li className=" hover:text-pink-600"><a href="">Projects</a></li>
         <li className=" hover:text-pink-600"><a href="">About</a></li>
