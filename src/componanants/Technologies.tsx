@@ -16,6 +16,9 @@ const Technologies = ({ usersPromise }: ITechnologiesProps) => {
 const handleAddToStack = (technology: ITechnologies) => {
     setStack([...stack, technology]);
 };
+  const handleRemoveFromStack = (id: string) => {
+  setStack(stack.filter((technology) => technology.id !== id));
+};
 
     return (
         <div>
@@ -127,7 +130,7 @@ const handleAddToStack = (technology: ITechnologies) => {
 
         <div
           key={technology.id}
-          className="flex items-center gap-3 border border-gray-200 rounded-xl p-3"
+          className="flex items-center justify-between border border-gray-200 rounded-xl p-3"
         >
 
           
@@ -147,10 +150,22 @@ const handleAddToStack = (technology: ITechnologies) => {
               {technology.category}
             </p>
           </div>
-
+        <button
+    onClick={() => handleRemoveFromStack(technology.id)}
+    className="text-3xl  text-red-500"
+  >
+    ×
+  </button>
         </div>
-
+        
+    
       ))}
+      <button
+      onClick={() => setStack([])}
+      className="mt-6 w-full rounded-xl border border-red-300 py-3 text-lg font-semibold text-red-500 hover:bg-red-50"
+    >
+      Remove All
+    </button>
 
     </div>
 
