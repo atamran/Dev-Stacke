@@ -90,40 +90,73 @@ const handleAddToStack = (technology: ITechnologies) => {
   </div>
 
 </div>
-            <div className='col-span-3 shadow-2xl py-4 p-4 '>
-                <h1 className='text-3xl font-bold'>Your Stack</h1>
-                <p>No technologies selected yet.</p>
-                {stack.length === 0 ? (
-  <div className="border border-gray-200 rounded-xl p-8 text-center shadow-md">
-    Your stack is empty.
+            <div className='col-span-3 shadow-2xl py-4 p-4'>
+
+  
+  <div className="flex items-center justify-between">
+    <h1 className='text-3xl font-bold'>
+      Your Stack
+    </h1>
+
   </div>
-) : (
-  <div className="mt-4 space-y-3">
-    {stack.map((technology) => (
-      <div
-        key={technology.id}
-        className="flex items-center gap-3 border border-gray-200 rounded-xl p-3"
-      >
-        <img
-          src={technology.icon}
-          alt={technology.name}
-          className="w-10 h-10 object-contain"
-        />
 
-        <div>
-          <h3 className="font-semibold">
-            {technology.name}
-          </h3>
+  
+  {stack.length === 0 ? (
+    <p className="mt-2 text-gray-500">
+      No technologies selected yet.
+    </p>
+  ) : (
+    <p className="mt-2 text-gray-500">
+      {stack.length}{" "}
+      {stack.length === 1 ? "Technology" : "Technologies"} Selected
+    </p>
+  )}
 
-          <p className="text-sm text-gray-500">
-            {technology.category}
-          </p>
+  
+  {stack.length === 0 ? (
+
+    <div className="mt-4 border border-gray-200 rounded-xl p-8 text-center shadow-md">
+      Your stack is empty.
+    </div>
+
+  ) : (
+
+    <div className="mt-4 space-y-3">
+
+      {stack.map((technology) => (
+
+        <div
+          key={technology.id}
+          className="flex items-center gap-3 border border-gray-200 rounded-xl p-3"
+        >
+
+          
+          <img
+            src={technology.icon}
+            alt={technology.name}
+            className="w-10 h-10 object-contain"
+          />
+
+          
+          <div>
+            <h3 className="font-semibold">
+              {technology.name}
+            </h3>
+
+            <p className="text-sm text-gray-500">
+              {technology.category}
+            </p>
+          </div>
+
         </div>
-      </div>
-    ))}
-  </div>
-)}
-                </div>
+
+      ))}
+
+    </div>
+
+  )}
+
+</div>
            </div>
             </div>
 
