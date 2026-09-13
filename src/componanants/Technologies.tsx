@@ -1,5 +1,5 @@
-import type { promises } from "dns";
-import { use } from "react";
+
+import { use, useState } from "react";
 import type { ITechnologies } from "../types";
 
 interface ITechnologiesProps {
@@ -10,6 +10,10 @@ const Technologies = ({ usersPromise }: ITechnologiesProps) => {
     console.log(usersPromise, "userPromise");
     const data = use(usersPromise);
     console.log(data, "data");
+    const [stack, setStack] = useState<ITechnologies[]>([]);
+      const handleAddToStack = (technology: ITechnologies) => {
+    setStack([...stack, technology]);
+  };
     return (
         <div>
             <div className='items-center justify-between gap-4 container mx-auto my-4 mb-4'>
@@ -73,7 +77,7 @@ const Technologies = ({ usersPromise }: ITechnologiesProps) => {
         </div>
 
         {/* Button */}
-        <button className="mt-6 w-full rounded-2xl bg-[#080d1d] py-3.5 text-lg font-medium text-white transition hover:bg-gray-800">
+        <button onClick={() => handleAddToStack(technology)} className="mt-6 w-full rounded-2xl bg-[#080d1d] py-3.5 text-lg font-medium text-white transition hover:bg-gray-800">
           Add to Stack
         </button>
 
