@@ -8,8 +8,10 @@ import Technologies from './componanants/Technologies'
 import Section from './componanants/Section'
 import Footer from './componanants/Footer'
 
-import type { ITechnologies } from './types'
+
 import { ToastContainer } from 'react-toastify'
+import type { ITechnologies } from './Type'
+
 
 const Loading = () => {
   return (

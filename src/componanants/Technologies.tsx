@@ -1,7 +1,8 @@
 import { use, useState } from "react";
-import type { ITechnologies } from "../types";
+
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import type { ITechnologies } from "../Type";
 
 interface ITechnologiesProps {
   usersPromise: Promise<ITechnologies[]>;
